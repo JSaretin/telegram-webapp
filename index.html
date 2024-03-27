@@ -9,14 +9,14 @@
     <script src="./alpine.js" defer></script>
 </head>
 
-<body x-data="">
-    <h1>Hello</h1>
-    <button @click="()=>{window.Telegram.WebApp.sendData('hello')}">click me</button>
+<body x-data="{clicked: 0}">
+    <h1 x-text="clicked"></h1>
+    <button @click="()=>{clicked++}">click me</button>
 
     <script>
-        document.addEventListener("alpine:init", () => {
-            console.log('working')
-        })
+        // document.addEventListener("alpine:init", () => {
+        //     window.Telegram.WebApp.initData | ""
+        // })
     </script>
 </body>
 
