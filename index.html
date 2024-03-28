@@ -9,17 +9,25 @@
     <script src="./alpine.js" defer></script>
 </head>
 
-<body x-data="{clicked: 0, msg: ''}">
-    <h1 x-text="'Welcome ' + Telegram.WebApp.WebAppUser?.first_name || ''"></h1>
-    <h1 x-text="clicked"></h1>
-    <button @click="()=>{clicked++}">click me</button>
-    <button @click="()=>{Telegram.WebApp.requestContact((r)=>{
-        Telegram.WebApp.showAlert(r)
-    })}">Share Contact</button>
+<body x-data="data">
+    <h1 x-text="user.name"></h1>
 
+    <script>
 
-    <input type="text" x-model="msg">
-    <button @click="()=>{Telegram.WebApp.sendData(msg); msg=''}">send message</button>
+        document.addEventListener('alpine:init', () => {
+
+            Alpine.data('data', (() => ({
+                user: { name: 'Mike' },
+                webApp: Telegram.WebApp,
+
+                init() {
+                    this.webApp.ready()
+                    this.webApp.showAlert('ready')
+                }
+            })))
+
+        })
+    </script>
 </body>
 
 </html>
