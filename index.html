@@ -17,7 +17,7 @@
     <div class="" x-data="{address: ''}">
         <input type="text" x-model="address">
         <button @click="()=>{
-            app.sendData({text: address})
+            app.sendData(address)
         }">send address</button>
     </div>
 
