@@ -22,7 +22,7 @@
                 data: (Telegram.webApp?.initDataUnsafe || {}),
                 init() {
                     Telegram.WebApp.ready();
-                    Telegram.WebApp.alert(Telegram.WebApp?.initData || '')
+                    Telegram.WebApp.showAlert(Telegram.WebApp?.initData || '')
                 }
 
             })))
