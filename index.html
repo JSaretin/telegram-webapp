@@ -22,7 +22,7 @@
     </div>
 
     <template x-for="k in Object.keys(app.initDataUnsafe.user)" key="k">
-        <h2 x-text="app.initDataUnsafe.user[k]"></h2>
+        <h2 x-text="k + ' = ' + app.initDataUnsafe.user[k]"></h2>
     </template>
     <script>
         const intiApp = Telegram.WebApp;
