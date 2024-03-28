@@ -14,7 +14,7 @@
     <h1 x-text="'platform ' + app.platform"></h1>
     <h1 x-text="'is Expanded ' + app.isExpanded"></h1>
 
-    <button @click="()=>{app.showAlert(app.initDataUnsafe)}">show data</button>
+    <button @click="()=>{app.showAlert(JSON.stringify(app.initDataUnsafe))}">show data</button>
     <script>
         const intiApp = Telegram.WebApp;
 
