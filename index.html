@@ -5,23 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./telegram-web-app.js"></script>
     <script src="./alpine.js" defer></script>
 </head>
 
 <body x-data="data">
-    <h1 x-text="user.name"></h1>
-    <h1 x-text="JSON.stringify(data)"></h1>
-    <button @click="()=>{Telegram.WebApp.showAlert(Telegram.WebApp?.initData || '')}">Get object</button>
+    <h1 x-text="'version ' + app.version"></h1>
+    <h1 x-text="'platform ' + app.platform"></h1>
+    <h1 x-text="'is Expanded ' + app.isExpanded"></h1>
+
+    <button @click="()=>{app.showAlert(app.initDataUnsafe)}">show data</button>
     <script>
+        const intiApp = Telegram.WebApp;
 
         document.addEventListener('alpine:init', () => {
-
             Alpine.data('data', (() => ({
-                user: { name: 'Mike' },
-                data: (Telegram.webApp?.initDataUnsafe || {}),
+                app: intiApp,
                 init() {
-                    Telegram.WebApp.ready();
+                    this.app.ready()
+                    this.app.expand()
                 }
 
             })))
