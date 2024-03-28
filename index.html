@@ -9,12 +9,16 @@
     <script src="./alpine.js" defer></script>
 </head>
 
-<body x-data="{clicked: 0}">
+<body x-data="{clicked: 0, msg: ''}">
     <h1 x-text="clicked"></h1>
     <button @click="()=>{clicked++}">click me</button>
     <button @click="()=>{Telegram.WebApp.requestContact((r)=>{
         Telegram.WebApp.showAlert(r)
     })}">Share Contact</button>
+
+
+    <input type="text" x-model="msg">
+    <button @click="()=>{Telegram.WebApp.sendData(msg); msg=''}">send message</button>
     <script>
         // document.addEventListener("alpine:init", () => {
         //     window.Telegram.WebApp.initData | ""
