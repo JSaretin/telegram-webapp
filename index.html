@@ -11,6 +11,7 @@
 
 <body x-data="data">
     <h1 x-text="user.name"></h1>
+    <h1 x-text="JSON.stringify(data)"></h1>
 
     <script>
 
@@ -19,6 +20,7 @@
             Alpine.data('data', (() => ({
                 user: { name: 'Mike' },
                 webApp: Telegram.WebApp,
+                data: this.webApp.initDataUnsafe,
 
                 init() {
                     this.webApp.ready()
