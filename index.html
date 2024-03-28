@@ -12,7 +12,9 @@
 <body x-data="{clicked: 0}">
     <h1 x-text="clicked"></h1>
     <button @click="()=>{clicked++}">click me</button>
-
+    <button @click="()=>{Telegram.WebApp.requestContact((e)=>{
+        alert(e)
+    })}">Share Contact</button>
     <script>
         // document.addEventListener("alpine:init", () => {
         //     window.Telegram.WebApp.initData | ""
