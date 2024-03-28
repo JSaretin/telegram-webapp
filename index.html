@@ -10,9 +10,16 @@
 </head>
 
 <body x-data="data">
-    <h1 x-text="'version ' + app.version"></h1>
+    <!-- <h1 x-text="'version ' + app.version"></h1>
     <h1 x-text="'platform ' + app.platform"></h1>
-    <h1 x-text="'is Expanded ' + app.isExpanded"></h1>
+    <h1 x-text="'is Expanded ' + app.isExpanded"></h1> -->
+
+    <div class="" x-data="{address: ''}">
+        <input type="text" x-model="address">
+        <button @click="()=>{
+            app.sendData({text: address})
+        }">send address</button>
+    </div>
 
     <button @click="()=>{app.showAlert(app.initDataUnsafe.user.first_name)}">show data</button>
     <script>
