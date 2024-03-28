@@ -19,11 +19,10 @@
 
             Alpine.data('data', (() => ({
                 user: { name: 'Mike' },
-                app: Telegram.webApp,
                 data: (Telegram.webApp?.initDataUnsafe || {}),
                 init() {
                     Telegram.WebApp.ready();
-                    this.app.alert(initData || '')
+                    Telegram.WebApp.alert(initData || '')
                 }
 
             })))
