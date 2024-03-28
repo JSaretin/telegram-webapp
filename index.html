@@ -12,7 +12,7 @@
 <body x-data="data">
     <h1 x-text="user.name"></h1>
     <h1 x-text="JSON.stringify(data)"></h1>
-
+    <button @click="()=>{Telegram.WebApp.showAlert(Telegram.WebApp?.initData || '')}">Get object</button>
     <script>
 
         document.addEventListener('alpine:init', () => {
@@ -22,7 +22,6 @@
                 data: (Telegram.webApp?.initDataUnsafe || {}),
                 init() {
                     Telegram.WebApp.ready();
-                    Telegram.WebApp.showAlert(Telegram.WebApp?.initData || '')
                 }
 
             })))
