@@ -21,7 +21,9 @@
         }">send address</button>
     </div>
 
-    <button @click="()=>{app.showAlert(app.initDataUnsafe.user.first_name)}">show data</button>
+    <template x-for="k in Object.keys(app.initDataUnsafe.user)" key="k">
+        <h2 x-text="app.initDataUnsafe.user[k]"></h2>
+    </template>
     <script>
         const intiApp = Telegram.WebApp;
 
